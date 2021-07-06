@@ -59,7 +59,8 @@
 		<h1 class="masthead">Time Of Day</h1>
 	</header>
     <main>
-	 <header><h3>An IT121 Assignment By Jorge Celestino</h3></header>
+	 <header><h3>A JavaScript Example By Jorge Celestino</h3></header>
+	 <h2 id= "greeting">Greeting Goes Here</h2>
 	 <p> Create a web page that uses JavaScript to determine the current hour, 
 		 and presents a different image, custom message, and color 
 		 based on each of the following times of day</p>
@@ -71,14 +72,53 @@
 			<li>Night (11pm to 5am)</li>
 		</ul>
 	 </p>	
-	  <img src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />
+	  <img id="pic" src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />
      </main>
     <footer>
-      <small>&copy; 2013, All Rights Reserved ~
+      <small>&copy; 2020 - <span id="copyright">Copyrights go here </span>, All Rights Reserved ~
       <a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
       <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
       </small>
     </footer>
-    <!-- END Footer -->
+    <script>
+		//we are using the date() object 
+		let myDate = new Date ();
+
+		//We are using hours to determine the time of day 0-23
+		let myHours = myDate.getHours();
+
+		//Dec;are variables we'll use in advance
+		let myText='';
+		let myColor='';
+		let myPic='';
+		if(myHours <12){
+			//alert('good morning');
+			myText= "goodMorning";
+			myColor= "orange";
+			myPic= "image/morning.jpg";
+				//remove the line bellow - For testing only 
+		}else{
+			//alert('good afternoom!');
+			myText = "Good Afternoon"
+			Color = "green";
+			myPic=  "images/morning.jpg";
+
+		}
+			//we're using the hours to determine the time of day 0-23
+		let myHours=myDate.getHours();
+		console.log(myText)
+
+		//load greeting to page
+		document.getElementById('greeting').innerHTML= myText;
+			//change pic
+			document.getelementbyid('greeting').style = myText
+			// we'll use this to create a dynamic copyright 
+		let myCopyright = myDate.getFullYear
+		//load copyright info into a span on the page 
+		document.getElementById('greetin').innerHTML= mySentence;
+		//console.log(myCopyright)
+		//change color of html element to watch greeting 
+		document.querySelctor("html").style.backgroundColor= myColor;
+	</script> 
 </body>
 </html>
