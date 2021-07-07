@@ -82,43 +82,54 @@
     </footer>
     <script>
 		//we are using the date() object 
-		let myDate = new Date ();
+		let myDate = new Date();
 
-		//We are using hours to determine the time of day 0-23
 		let myHours = myDate.getHours();
 
-		//Dec;are variables we'll use in advance
 		let myText='';
 		let myColor='';
 		let myPic='';
-		if(myHours <12){
+
+		let d = new Date ();
+
+		//Remove the hour bellow for testing purposes only
+		myHours = 13;
+
+		if(myHours >= 5 && myHours < 12){
 			//alert('good morning');
-			myText= "goodMorning";
+			myText= "Good Morning!";
 			myColor= "orange";
-			myPic= "image/morning.jpg";
-				//remove the line bellow - For testing only 
+			myPic= "images/morning.jpg";
+				
+		}else if(myHours >= 12 && myHours < 18){
+			myText = "Good Afternoon!";
+			myColor = "green";
+			myPic=  "images/afternoon.jpg";
+		
+		}else if(myHours >= 18 && myHours < 23){
+			myText = "Good Evening!";
+			myColor = "blue";
+			myPic=  "images/evening.jpg";
+
 		}else{
-			//alert('good afternoom!');
-			myText = "Good Afternoon"
-			Color = "green";
-			myPic=  "images/morning.jpg";
+			myText = "Good Night!";
+			myColor = "purple";
+			myPic=  "images/night.jpg";
 
 		}
-			//we're using the hours to determine the time of day 0-23
-		let myHours=myDate.getHours();
-		console.log(myText)
 
+		console.log(myHours);
+		//console.log(myText);
 		//load greeting to page
 		document.getElementById('greeting').innerHTML= myText;
-			//change pic
-			document.getelementbyid('greeting').style = myText
-			// we'll use this to create a dynamic copyright 
-		let myCopyright = myDate.getFullYear
-		//load copyright info into a span on the page 
-		document.getElementById('greetin').innerHTML= mySentence;
-		//console.log(myCopyright)
-		//change color of html element to watch greeting 
-		document.querySelctor("html").style.backgroundColor= myColor;
+		//change color of greeting text
+		document.getElementById('greeting').style.color = myColor; 
+		document.querySelector("html").style.backgroundColor = myColor;
+		document.getElementById("pic").src = myPic;
+
+		let myYear = myDate.getFullYear();
+		document.getElementById('copyright').innerHTML= myYear;
+		
 	</script> 
 </body>
 </html>
